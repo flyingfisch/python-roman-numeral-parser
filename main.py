@@ -13,7 +13,7 @@ def parseRoman(text):
     j = 1
     for i in text:
         value = numerals[i]
-        operator = numerals[text[j]] > value ? 1 : -1
+        operator = 1 if numerals[text[j]] > value else -1
 
         j++
 
