@@ -9,19 +9,25 @@ numerals = {
     'M': 1000,
 }
 
+#test
 def parseRoman(text):
     result = 0
     counter = 0
 
     for i in text:
         value = numerals[i]
-        operator = 1 if numerals[text[counter + 1]] > value else -1
 
-        counter += 1 if counter < len(text) else 0
+        if counter + 1 < len(text):
+            next = numerals[text[counter + 1]]
+        else:
+            next = numerals[text[counter]]
+        operator = -1 if next > value else 1
+
+        counter += 1
         result += operator * value
 
     return result
 
-test = "IV"
-
-print(parseRoman(test))
+print(parseRoman("IV"))
+print(parseRoman("XX"))
+print(parseRoman("MCMLVII"))
