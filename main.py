@@ -10,12 +10,17 @@ numerals = {
 }
 
 def parseRoman(text):
-    j = 1
+    result = 0
+    counter = 0
+
     for i in text:
         value = numerals[i]
-        operator = 1 if numerals[text[j]] > value else -1
+        operator = 1 if numerals[text[counter + 1]] > value else -1
 
-        j++
+        counter += 1 if counter < len(text) else 0
+        result += operator * value
+
+    return result
 
 test = "IV"
 
