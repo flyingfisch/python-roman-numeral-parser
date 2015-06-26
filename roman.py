@@ -2,9 +2,6 @@
 
 import sys
 
-# Put the command line input in a var
-input = sys.argv[1]
-
 numerals = {
     'I': 1,
     'V': 5,
@@ -39,9 +36,7 @@ def parseRoman(text):
 
 # calculate the result
 # TODO: set this up so it does not run if imported as a module
-print(parseRoman(input))
+if __name__ == "__main__":
+    input = sys.argv[1]
+    print(parseRoman(input))
 
-# some tests
-#print(parseRoman("IV"))
-#print(parseRoman("XX"))
-#print(parseRoman("MCMLVII"))
